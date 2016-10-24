@@ -21,6 +21,6 @@ Deployment flow:
     - git push origin file_feature
     - gitHub: Pull request
     - git checkout development
-    - git branch -d branch_name
   - from development
     - gitHub: Pull request
+    - git branch -d branch_name
