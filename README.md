@@ -19,13 +19,8 @@ Deployment flow:
     - git add .
     - git commit -m "update details"
     - git push origin file_feature
-    - [gitHub
-      - Pull request
-    - OR
-    - git push origin development]
+    - gitHub: Pull request
     - git checkout development
+    - git branch -d branch_name
   - from development
-    - [gitHub
-      - Pull request
-    - OR
-      - git push origin master]
+    - gitHub: Pull request
