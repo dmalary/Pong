@@ -19,8 +19,21 @@ Deployment flow:
     - git add .
     - git commit -m "update details"
     - git push origin file_feature
-    - gitHub: Pull request
+    - [gitHub
+      - Pull request
+    - OR
+    - git push origin development]
     - git checkout development
   - from development
-    - gitHub: Pull request
-    - git branch -d branch_name
+    - [gitHub
+      - Pull request
+    - OR
+      - git push origin master]
+
+
+Technologies Used:
+
+  - Javascript:
+    - Methods include: window.requestAnimationFrame()
+      - link: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+      - example of JS pong game: https://robots.thoughtbot.com/pong-clone-in-javascript
