@@ -1,6 +1,6 @@
 // console.log('Sim Sim Salabim');
 
-// requestAnimationFrame =======================================================
+// === requestAnimationFrame ===
 var animate =   window.requestAnimationFrame ||
                 window.webkitrequestAnimationFrame ||
                 window.mozrequestAnimationFrame ||
@@ -9,7 +9,7 @@ var animate =   window.requestAnimationFrame ||
                 };
 // creates 60fps and method optimizes browser performance
 
-// Game canvas =================================================================
+// === Game canvas ===
 var canvas = document.createElement('canvas');
 var width = 700;
 var height = 400;
@@ -22,12 +22,12 @@ window.onload = function() {
   animate(setup)
 };
 
-// Game setup ==================================================================
+// === Game setup ===
 var setup = function() {
   update();
   render();
   animate(setup);
-}
+};
 
 var update = function() {};
 
@@ -36,7 +36,7 @@ var render = function() {
   context.fillRect(0, 0, width, height);
 };
 
-// Game pieces =================================================================
+// === Game pieces ===
 function Paddle(x, y, width, height) {
   this.x = x;
   this.y = y;
@@ -58,7 +58,7 @@ function Player() {
 
 function Computer() {
   this.paddle = new Paddle(0, 150, 10, 50);
-}
+};
 
 // RENDER SCORES FROM HERE?
 Player.prototype.render = function() {
@@ -84,7 +84,7 @@ Ball.prototype.render = function() {
   context.fill();
 };
 
-// Game lineup =================================================================
+// === Game lineup ===
 var player = new Player();
 var computer = new Computer();
 var ball = new Ball(200, 300);
@@ -95,4 +95,4 @@ var render = function() {
   player.render();
   computer.render();
   ball.render();
-}
+};
