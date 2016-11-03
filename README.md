@@ -37,7 +37,9 @@
 - [Game field?](http://www.newenglandsealcoating.com/images/tennis-court-dimensions2.gif)
 - Mod Game
   - [Brick Smasher1](https://github.com/sagardave/Brick-Breaker-Game)
-  - [Brick Smasher1](https://github.com/jesselpalmer/brick-breaker)
+  - [Brick Smasher2](https://github.com/jesselpalmer/brick-breaker)
+  - [Brick Smasher3](https://github.com/TheNewStyles/javascript-game)
+  - [Brick Smasher4](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript)
 
 - Concepts
   - [JS prototype object](http://www.javascriptkit.com/javatutors/proto.shtml)
