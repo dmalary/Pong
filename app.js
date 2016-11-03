@@ -53,11 +53,11 @@ Paddle.prototype.render = function() {
 
 // EDIT COORDINATES (o)
 function Player() {
-  this.paddle = new Paddle(690, 150, 10, 50);
+  this.paddle = new Paddle(690, 175, 10, 50);
 };
 
 function Computer() {
-  this.paddle = new Paddle(0, 150, 10, 50);
+  this.paddle = new Paddle(0, 175, 10, 50);
 };
 
 // RENDER SCORES FROM HERE?
@@ -72,8 +72,8 @@ Computer.prototype.render = function () {
 function Ball(x, y) {
   this.x = x;
   this.y = y;
-  this.xSpeed = 0;
-  this.ySpeed = 3;
+  this.xSpeed = 3;
+  this.ySpeed = 0;
   this.radius = 5;
 };
 
@@ -87,7 +87,7 @@ Ball.prototype.render = function() {
 // === Game lineup ===
 var player = new Player();
 var computer = new Computer();
-var ball = new Ball(200, 300);
+var ball = new Ball(350, 200);
 
 var render = function() {
   context.fillStyle = "#0075c9";
