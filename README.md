@@ -33,10 +33,14 @@
   - [Pong 1](https://robots.thoughtbot.com/pong-clone-in-javascript#getting-started)
   - [Pong 2](http://codeincomplete.com/posts/javascript-pong/)
 - [Game Color palettes](http://www.color-hex.com/color-palettes/)
+  - [Final palette](http://www.color-hex.com/color-palette/25496)
 - [Game field?](http://www.newenglandsealcoating.com/images/tennis-court-dimensions2.gif)
-- [JS prototype object](http://www.javascriptkit.com/javatutors/proto.shtml)
-- [HMTL Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-- [Animation Frame method](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+
+- Concepts
+  - [JS prototype object](http://www.javascriptkit.com/javatutors/proto.shtml)
+  - [HMTL Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+  - [Animation Frame method](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+  - [2d context](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
 
 ---
 
