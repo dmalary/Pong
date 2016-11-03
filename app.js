@@ -96,3 +96,13 @@ var render = function() {
   computer.render();
   ball.render();
 };
+
+// === Game logic ===
+var update = function() {
+  ball.update();
+};
+
+Ball.prototype.update = function () {
+  this.x += this.xSpeed;
+  this.y += this.ySpeed;
+};
