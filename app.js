@@ -97,7 +97,7 @@ var render = function() {
   ball.render();
 };
 
-// === Game logic ===
+// === Game collision logic ===
 var update = function() {
   ball.update();
 };
@@ -154,3 +154,5 @@ Ball.prototype.update = function(paddle1, paddle2) {
     };
   };
 };
+
+// === Match logic ===
