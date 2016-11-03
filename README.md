@@ -56,6 +56,7 @@
   - paddle 1
   - paddle 2
 - ball
+  - ball 2, 3, 4?
 
 #### Functions
 - Game run
