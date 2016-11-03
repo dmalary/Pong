@@ -108,7 +108,7 @@ Ball.prototype.update = function () {
 };
 
 var update = function () {
-  ball.update(player.padde, computer.paddle);
+  ball.update(player.paddle, computer.paddle);
 };
 
 Ball.prototype.update = function(paddle1, paddle2) {
@@ -134,20 +134,23 @@ Ball.prototype.update = function(paddle1, paddle2) {
     this.x = 350;
     this.y = 200;
   };
-  //
-  // // HIT PLAYER PADDLE
-  // if (leftX > 350) {
-  //   if (leftX < (paddle1.x + paddle1.width) && rightX > paddle1.x && leftY < (paddle1.y + paddle1.height) && rightY > paddle1.y) {
-  //     this.xSpeed = -3;
-  //     this.ySpeed += (paddle1.ySpeed / 2);
-  //     this.x += this.xSpeed;
-  //   };
-  // } else {
-  // // HIT COMPUTER PADDLE
-  //   if (leftX < (paddle2.x + paddle2.width) && rightX > paddle2.x && leftY < (paddle2.y + paddle2.height) && rightY > paddle2.y) {
-  //     this.xSpeed = 3;
-  //     this.ySpeed += (paddle2.ySpeed / 2);
-  //     this.x += this.xSpeed;
-  //   };
-  // }
+
+  // console.log(paddle1)
+  // console.log(paddle2)
+
+  // HIT PLAYER PADDLE
+  if (leftX > 350) {
+    if (leftX < (paddle1.x + paddle1.width) && rightX > paddle1.x && leftY < (paddle1.y + paddle1.height) && rightY > paddle1.y) {
+      this.xSpeed = -3;
+      this.ySpeed += (paddle1.ySpeed / 2);
+      this.x += this.xSpeed;
+    };
+  } else {
+  // HIT COMPUTER PADDLE
+    if (leftX < (paddle2.x + paddle2.width) && rightX > paddle2.x && leftY < (paddle2.y + paddle2.height) && rightY > paddle2.y) {
+      this.xSpeed = 3;
+      this.ySpeed += (paddle2.ySpeed / 2);
+      this.x += this.xSpeed;
+    };
+  };
 };
