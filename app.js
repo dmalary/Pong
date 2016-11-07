@@ -119,10 +119,12 @@ Ball.prototype.update = function(paddle1, paddle2) {
   var rightX = this.x + 5;
   var rightY = this. y + 5;
 
-  if (this.y - 5 < 0) { // HITTING TOP WALL
+  // HITTING TOP WALL
+  if (this.y - 5 < 0) {
     this.y = 5;
     this.ySpeed = -this.ySpeed;
-  } else if (this.y + 5 > 400) { // HITTING BOTTOM WALL
+  // HITTING BOTTOM WALL
+  } else if (this.y + 5 > 400) {
     this.y = 395;
     this.ySpeed = -this.ySpeed;
   };
@@ -155,4 +157,83 @@ Ball.prototype.update = function(paddle1, paddle2) {
   };
 };
 
-// === Match logic ===
+// === Match player logic ===
+var controlKeys = {};
+
+window.addEventListener('keyDown', function(event) {
+  controlKeys[event.keyCode] = true;
+});
+
+window.addEventListener('keyUp', function(event) {
+  delete controlKeys[event.keyCode]
+});
+
+var update = function() {
+  player.update();
+  ball.update(player.paddle, computer.paddle);
+};
+
+Player.prototype.update = function() {
+  for (var key in controlKeys) {
+    var value = Number(key);
+    console.log(value);
+    console.log(key);
+
+    // UP ARROW
+    if (value == 38) {
+      this.paddle.move(0, -4);
+    // DOWN ARROW
+    } else if (value == 40) {
+      this.paddle.move(4, 0);
+    } else {
+      this.paddle.move(0, 0);
+    };
+  };
+};
+
+Paddle.prototype.move = function(x, y) {
+  this.x += x;
+  this.y += y;
+  this.xSpeed = x;
+  this.ySpeed = y;
+
+  // MAX TOP
+  if  (this.y < 0) {
+    this.y = 0;
+    this.ySpeed = 0;
+  // MAX BOTTOM
+  } else if (this.y + this.height > 400) {
+    this.y = 400 - this.height;
+    this.ySpeed = 0;
+  };
+};
+
+// console.log(controlKeys)
+
+// === Computer AI logic ===
+var update = function() {
+  player.update();
+  computer.update(ball);
+  ball.update(player.paddle, computer.paddle);
+};
+
+Computer.prototype.update = function(ball) {
+  var x_pos = ball.x;
+  var diff = -((this.paddle.y + (this.paddle.height / 2)) - x_pos);
+
+  // MAX SPEED TOP
+  if (diff < 0 && diff < -4) {
+    diff = -5
+  // MAX SPEED BOTTOM
+  } else if (diff > 0 && diff > 4) {
+    diff = 5
+  };
+
+  this.paddle.move(0, diff);
+
+  if (this.paddle.y < 0) {
+    this.paddle.y = 0
+  } else if (this.paddle.y + this.paddle.height > 400) {
+    this.paddle.y = 400 - this.paddle.height;
+  };
+};
