@@ -157,7 +157,7 @@ Ball.prototype.update = function(paddle1, paddle2) {
   };
 };
 
-// === Match logic ===
+// === Match player logic ===
 var controlKeys = {};
 
 window.addEventListener('keyDown', function(event) {
@@ -176,6 +176,8 @@ var update = function() {
 Player.prototype.update = function() {
   for (var key in controlKeys) {
     var value = Number(key);
+    console.log(value);
+    console.log(key);
 
     // UP ARROW
     if (value == 38) {
@@ -203,5 +205,35 @@ Paddle.prototype.move = function(x, y) {
   } else if (this.y + this.height > 400) {
     this.y = 400 - this.height;
     this.ySpeed = 0;
+  };
+};
+
+// console.log(controlKeys)
+
+// === Computer AI logic ===
+var update = function() {
+  player.update();
+  computer.update(ball);
+  ball.update(player.paddle, computer.paddle);
+};
+
+Computer.prototype.update = function(ball) {
+  var x_pos = ball.x;
+  var diff = -((this.paddle.y + (this.paddle.height / 2)) - x_pos);
+
+  // MAX SPEED TOP
+  if (diff < 0 && diff < -4) {
+    diff = -5
+  // MAX SPEED BOTTOM
+  } else if (diff > 0 && diff > 4) {
+    diff = 5
+  };
+
+  this.paddle.move(0, diff);
+
+  if (this.paddle.y < 0) {
+    this.paddle.y = 0
+  } else if (this.paddle.y + this.paddle.height > 400) {
+    this.paddle.y = 400 - this.paddle.height;
   };
 };
