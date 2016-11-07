@@ -25,6 +25,7 @@
     - gitHub: Pull request
     - git branch -d branch_name
 
+[Version Control](http://stackoverflow.com/questions/1125968/how-to-force-git-pull-to-overwrite-local-files)
 ---
 
 ### Links
