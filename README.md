@@ -47,6 +47,7 @@
   - [HMTL Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
   - [Animation Frame method](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
   - [2d context](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+  - [Character codes](https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes)
 
 ---
 
