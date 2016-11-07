@@ -119,10 +119,12 @@ Ball.prototype.update = function(paddle1, paddle2) {
   var rightX = this.x + 5;
   var rightY = this. y + 5;
 
-  if (this.y - 5 < 0) { // HITTING TOP WALL
+  // HITTING TOP WALL
+  if (this.y - 5 < 0) {
     this.y = 5;
     this.ySpeed = -this.ySpeed;
-  } else if (this.y + 5 > 400) { // HITTING BOTTOM WALL
+  // HITTING BOTTOM WALL
+  } else if (this.y + 5 > 400) {
     this.y = 395;
     this.ySpeed = -this.ySpeed;
   };
@@ -156,3 +158,33 @@ Ball.prototype.update = function(paddle1, paddle2) {
 };
 
 // === Match logic ===
+var controlKeys = {};
+
+window.addEventListener('keyDown', function(event) {
+  controlKeys[event.keyCode] = true;
+});
+
+window.addEventListener('keyUp', function(event) {
+  delete controlKeys[event.keyCode]
+});
+
+var update = function {
+  player.update();
+  ball.update(player.paddle, computer.paddle);
+};
+
+Player.prototype.update = function() {
+  for (var key in controlKeys) {
+    var value = Number(key);
+
+    // UP ARROW
+    if (value == 38) {
+      this.paddle.move(0, -4);
+    // DOWN ARROW
+    } else if (value == 40) {
+      this.paddle.move(4, 0);
+    } else {
+      this.paddle.move(0, 0);
+    };
+  };
+};
