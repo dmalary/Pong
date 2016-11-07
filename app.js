@@ -168,7 +168,7 @@ window.addEventListener('keyUp', function(event) {
   delete controlKeys[event.keyCode]
 });
 
-var update = function {
+var update = function() {
   player.update();
   ball.update(player.paddle, computer.paddle);
 };
@@ -186,5 +186,22 @@ Player.prototype.update = function() {
     } else {
       this.paddle.move(0, 0);
     };
+  };
+};
+
+Paddle.prototype.move = function(x, y) {
+  this.x += x;
+  this.y += y;
+  this.xSpeed = x;
+  this.ySpeed = y;
+
+  // MAX TOP
+  if  (this.y < 0) {
+    this.y = 0;
+    this.ySpeed = 0;
+  // MAX BOTTOM
+  } else if (this.y + this.height > 400) {
+    this.y = 400 - this.height;
+    this.ySpeed = 0;
   };
 };
