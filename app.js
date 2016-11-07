@@ -1,6 +1,8 @@
 // console.log('Sim Sim Salabim');
 
-// === requestAnimationFrame ===
+// =======================
+// === Animate request ===
+// =======================
 var animate =   window.requestAnimationFrame ||
                 window.webkitrequestAnimationFrame ||
                 window.mozrequestAnimationFrame ||
@@ -9,7 +11,9 @@ var animate =   window.requestAnimationFrame ||
                 };
 // creates 60fps and method optimizes browser performance
 
+// ===================
 // === Game canvas ===
+// ===================
 var canvas = document.createElement('canvas');
 var width = 700;
 var height = 400;
@@ -22,7 +26,9 @@ window.onload = function() {
   animate(setup)
 };
 
+// ==================
 // === Game setup ===
+// ==================
 var setup = function() {
   update();
   render();
@@ -36,7 +42,9 @@ var render = function() {
   context.fillRect(0, 0, width, height);
 };
 
+// ===================
 // === Game pieces ===
+// ===================
 function Paddle(x, y, width, height) {
   this.x = x;
   this.y = y;
@@ -84,7 +92,9 @@ Ball.prototype.render = function() {
   context.fill();
 };
 
+// ===================
 // === Game lineup ===
+// ===================
 var player = new Player();
 var computer = new Computer();
 var ball = new Ball(350, 200);
@@ -97,7 +107,9 @@ var render = function() {
   ball.render();
 };
 
+// ============================
 // === Game collision logic ===
+// ============================
 var update = function() {
   ball.update();
 };
@@ -157,7 +169,9 @@ Ball.prototype.update = function(paddle1, paddle2) {
   };
 };
 
+// ==========================
 // === Match player logic ===
+// ==========================
 var controlKeys = {};
 
 window.addEventListener('keyDown', function(event) {
@@ -210,7 +224,9 @@ Paddle.prototype.move = function(x, y) {
 
 // console.log(controlKeys)
 
+// =========================
 // === Computer AI logic ===
+// =========================
 var update = function() {
   player.update();
   computer.update(ball);
