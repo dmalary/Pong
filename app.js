@@ -35,12 +35,12 @@ var setup = function() {
   animate(setup);
 };
 
-var update = function() {};
+// var update = function() {};
 
-var render = function() {
-  context.fillStyle = "#0075c9";
-  context.fillRect(0, 0, width, height);
-};
+// var render = function() {
+//   context.fillStyle = "#0075c9";
+//   context.fillRect(0, 0, width, height);
+// };
 
 // ===================
 // === Game pieces ===
@@ -61,11 +61,11 @@ Paddle.prototype.render = function() {
 
 // EDIT COORDINATES (o)
 function Player() {
-  this.paddle = new Paddle(690, 175, 10, 50);
+  this.paddle = new Paddle(0, 175, 10, 50);
 };
 
 function Computer() {
-  this.paddle = new Paddle(0, 175, 10, 50);
+  this.paddle = new Paddle(690, 175, 10, 50);
 };
 
 // RENDER SCORES FROM HERE?
@@ -110,18 +110,18 @@ var render = function() {
 // ============================
 // === Game collision logic ===
 // ============================
-var update = function() {
-  ball.update();
-};
+// var update = function() {
+//   ball.update();
+// };
 
 Ball.prototype.update = function () {
   this.x += this.xSpeed;
   this.y += this.ySpeed;
 };
 
-var update = function () {
-  ball.update(player.paddle, computer.paddle);
-};
+// var update = function () {
+//   ball.update(player.paddle, computer.paddle);
+// };
 
 Ball.prototype.update = function(paddle1, paddle2) {
   this.x += this.xSpeed;
@@ -182,16 +182,16 @@ window.addEventListener('keyUp', function(event) {
   delete controlKeys[event.keyCode]
 });
 
-var update = function() {
-  player.update();
-  ball.update(player.paddle, computer.paddle);
-};
+// var update = function() {
+//   player.update();
+//   ball.update(player.paddle, computer.paddle);
+// };
 
 Player.prototype.update = function() {
   for (var key in controlKeys) {
     var value = Number(key);
-    console.log(value);
-    console.log(key);
+    // console.log(value);
+    // console.log(key);
 
     // UP ARROW
     if (value == 38) {
@@ -234,8 +234,8 @@ var update = function() {
 };
 
 Computer.prototype.update = function(ball) {
-  var x_pos = ball.x;
-  var diff = -((this.paddle.y + (this.paddle.height / 2)) - x_pos);
+  var xPos = ball.x;
+  var diff = -((this.paddle.y + (this.paddle.height / 2)) - xPos);
 
   // MAX SPEED TOP
   if (diff < 0 && diff < -4) {
